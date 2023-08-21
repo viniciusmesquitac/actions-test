@@ -1,12 +1,13 @@
 name: Matrix Array
-
-inputs:
-  apps:
-    type: string
-    required: true
-  configs:
-    type: string
-    required: true
+on:
+  workflow_dispatch:
+    inputs:
+      apps:
+        type: string
+        required: true
+      configs:
+        type: string
+        required: true
 
 jobs:
   Example-Matrix:
@@ -19,6 +20,6 @@ jobs:
     steps:
       - shell: bash
         with:
-          apps: ${{ matrix.apps }}
-          configs: ${{ matrix.configs }}
-      - run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
+          app: ${{ matrix.apps }}
+          config: ${{ matrix.configs }}
+      - run: echo "starting the ${{ matrix.app }} with ${{ matrix.config }}"
