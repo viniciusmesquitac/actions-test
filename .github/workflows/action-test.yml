@@ -1,0 +1,16 @@
+name: Matrix Array
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Example-Matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        apps: [app1, app2, app3]
+        configs: [config1, config2, config3]
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          app: ${{ matrix.apps }}
+          config: ${{ matrix.configs }}
+      - run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
