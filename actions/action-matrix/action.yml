@@ -9,10 +9,9 @@ on:
         type: string
         required: true
 
-jobs:
-  Example App:
-    runs-on: ubuntu-latest
-
-    step:
-      - shell: bash
-      - run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
+runs:
+  using: composite
+  steps:
+    - name: Configure App
+      shell: bash
+      run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
