@@ -7,8 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        apps: ['app1', 'app2', 'app3']
-        configs: ['config1', 'config2', 'config3']
+        apps:
+          - { name: app1, config: config1 }
+          - { name: app2, config: config2 }
+          - { name: app3, config: config3 }
 
     steps:
       - name: Check out repository
@@ -17,7 +19,7 @@ jobs:
       - name: Show apps
         uses: ./actions/action-matrix
         with:
-          app: ${{ matrix.apps }}
-          config: ${{ matrix.configs }}
+          app: ${{ matrix.apps.name }}
+          config: ${{ matrix.apps.config }}
 
           
