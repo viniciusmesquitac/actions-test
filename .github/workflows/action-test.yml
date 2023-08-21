@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        apps: [app1, app2, app3]
-        configs: [config1, config2, config3]
+        apps: ['app1', 'app2', 'app3']
+        configs: ['config1', 'config2', 'config3']
 
     steps:
       - name: Check out repository
