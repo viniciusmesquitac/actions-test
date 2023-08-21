@@ -5,12 +5,16 @@ on: [push]
 jobs:
   Action-Test:
     runs-on: ubuntu-latest
+    env:
+      APP1: "app1"
+      APP2: "app2"
+      APP3: "app3"
     strategy:
       matrix:
         apps:
-          - { name: app1, config: config1 }
-          - { name: app2, config: config2 }
-          - { name: app3, config: config3 }
+          - { name: ${{ env.APP1 }}, config: config1 }
+          - { name: ${{ env.APP2 }}, config: config2 }
+          - { name: ${{ env.APP3 }}, config: config3 }
 
     steps:
       - name: Check out repository
