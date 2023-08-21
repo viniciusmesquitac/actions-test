@@ -5,6 +5,11 @@ on: [push]
 jobs:
   Action-Test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        apps: [app1, app2, app3]
+        configs: [config1, config2, config3]
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -12,6 +17,7 @@ jobs:
       - name: Show apps
         uses: ./actions/action-matrix
         with:
-          app: "['app1', 'app2', 'app3']"
-          config: "['config1', 'config2', 'config3']"
+          app: ${{ matrix.apps }}
+          config: ${{ matrix.config }}
+
           

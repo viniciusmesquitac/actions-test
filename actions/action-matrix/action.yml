@@ -1,25 +1,17 @@
 name: Matrix Array
-on:
-  workflow_dispatch:
-    inputs:
-      apps:
-        type: string
-        required: true
-      configs:
-        type: string
-        required: true
+
+inputs:
+  app:
+    type: string
+    required: true
+  config:
+    type: string
+    required: true
 
 jobs:
-  Example-Matrix:
+  Example App:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        apps: ${{ fromJSON(github.event.inputs.app) }}
-        configs: ${{ fromJSON(github.event.inputs.config) }}
-  
-    steps:
+
+    step:
       - shell: bash
-        with:
-          app: ${{ matrix.apps }}
-          config: ${{ matrix.configs }}
-      - run: echo "starting the ${{ matrix.app }} with ${{ matrix.config }}"
+      - run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
