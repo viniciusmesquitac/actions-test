@@ -5,8 +5,13 @@ on: [push]
 jobs:
   Action-Test:
     runs-on: ubuntu-latest
+    uses:
     steps:
-      - uses: ./.github/actions/action-matrix
+      - uses: actions/checkout@v3
+
+      - name: Show apps
+        uses: ./.github/actions/action-matrix
         with:
           app: "['app1', 'app2', 'app3']"
           config: "['config1', 'config2', 'config3']"
+          
