@@ -6,7 +6,8 @@ jobs:
   Action-Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v3
 
       - name: Show apps
         uses: ./.github/actions/action-matrix
