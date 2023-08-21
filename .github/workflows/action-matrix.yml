@@ -1,0 +1,24 @@
+name: Matrix Array
+
+inputs:
+  apps:
+    type: string
+    required: true
+  configs:
+    type: string
+    required: true
+
+jobs:
+  Example-Matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        apps: ${{ fromJSON(inputs.app) }}
+        configs: ${{ fromJSON(inputs.config) }}
+  
+    steps:
+      - shell: bash
+        with:
+          apps: ${{ matrix.apps }}
+          configs: ${{ matrix.configs }}
+      - run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
