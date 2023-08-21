@@ -12,9 +12,9 @@ jobs:
     strategy:
       matrix:
         apps:
-          - { name: ${{ env.APP1 }}, config: config1 }
-          - { name: ${{ env.APP2 }}, config: config2 }
-          - { name: ${{ env.APP3 }}, config: config3 }
+          - { name: "${{ env.APP1 }}", config: config1 }
+          - { name: "${{ env.APP2 }}", config: config2 }
+          - { name: "${{ env.APP3 }}", config: config3 }
 
     steps:
       - name: Check out repository
