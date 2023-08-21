@@ -8,13 +8,14 @@ inputs:
     type: string
     required: true
 
-runs:
-  using: composite
-  strategy:
-    matrix:
-      apps: ${{ fromJSON(inputs.app) }}
-      configs: ${{ fromJSON(inputs.config) }}
-
+jobs:
+  Example-Matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        apps: ${{ fromJSON(github.event.inputs.app) }}
+        configs: ${{ fromJSON(github.event.inputs.config) }}
+  
     steps:
       - shell: bash
         with:
