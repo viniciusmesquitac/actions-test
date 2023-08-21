@@ -1,12 +1,13 @@
-name: Matrix Array
-
-inputs:
-  app:
-    type: string
-    required: true
-  config:
-    type: string
-    required: true
+name: Run App
+on:
+  workflow_call:
+    inputs:
+      app:
+        type: string
+        required: true
+      config:
+        type: string
+        required: true
 
 jobs:
   Example App:
