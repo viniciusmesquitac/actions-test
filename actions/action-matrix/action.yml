@@ -1,13 +1,12 @@
 name: Run App
-on:
-  workflow_call:
-    inputs:
-      app:
-        type: string
-        required: true
-      config:
-        type: string
-        required: true
+
+inputs:
+  app:
+    type: string
+    required: true
+  config:
+    type: string
+    required: true
 
 runs:
   using: composite
