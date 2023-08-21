@@ -6,7 +6,7 @@ jobs:
   Action-Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./action-matrix
+      - uses: './action-matrix/action.yml'
         with:
           app: "['app1', 'app2', 'app3']"
           config: "['config1', 'config2', 'config3']"
