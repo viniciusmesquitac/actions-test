@@ -15,6 +15,6 @@ jobs:
         with:
           app: "app selected"
           config: "config selected"
-          apps: "matrix={\"include\": [ {\"app\": \"app 1\"}, {\"app\": \"app 2\"}, {\"app\": \"app 3\"} ] }"
+          apps: '["app 1", "app 2", "app 3"]'
 
           

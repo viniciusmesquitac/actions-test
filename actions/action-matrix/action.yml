@@ -12,11 +12,14 @@ inputs:
     required: true
 
 strategy:
-  matrix: ${{ fromJson("matrix={\"include\": \[\{\"app\": \"app 1\"}, \{\"app\": \"app 2\"}, \{\"app\": \"app 3\"\}\]\}") }}
+  matrix:
+    apps:
+      - { name: "app 1" }
+      - { name: "app 2" }
 
 runs:
   using: composite
   steps:
     - name: Configure App
       shell: bash
-      run: echo "starting the ${{ matrix.app }} with ${{ inputs.config }}"
+      run: echo "starting the ${{ matrix.apps.name }} with ${{ inputs.config }}"
