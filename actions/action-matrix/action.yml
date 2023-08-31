@@ -19,6 +19,4 @@ runs:
   steps:
     - name: Configure App
       shell: bash
-      with:
-        app: ${{ matrix.app }}
-      run: echo "starting the ${{ app }} with ${{ inputs.config }}"
+      run: echo "starting the ${{ matrix.app }} with ${{ inputs.config }}"
