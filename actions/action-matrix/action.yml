@@ -12,7 +12,7 @@ inputs:
     required: true
 
 strategy:
-  matrix: ${{ fromJson(inputs.apps) }}
+  matrix: "matrix={\"include\": [ {\"app\": \"app 1\"}, {\"app\": \"app 2\"}, {\"app\": \"app 3\"} ] }"
 
 runs:
   using: composite
