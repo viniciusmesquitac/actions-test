@@ -11,15 +11,12 @@ inputs:
     type: string
     required: true
 
-strategy:
-  matrix:
-    apps:
-      - { name: "app 1" }
-      - { name: "app 2" }
-
 runs:
   using: composite
   steps:
     - name: Configure App
       shell: bash
-      run: echo "starting the ${{ matrix.apps.name }} with ${{ inputs.config }}"
+      run: |
+        IFS="," read -a apps_array <<< $apps
+        echo "App 1: ${apps_array[0]}"
+        echo "Number of elements in the array: ${#apps_array[@]}"
