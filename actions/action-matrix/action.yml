@@ -7,10 +7,18 @@ inputs:
   config:
     type: string
     required: true
+  apps:
+    type: string
+    required: true
+
+strategy:
+  matrix: ${{ fromJson(inputs.apps) }}
 
 runs:
   using: composite
   steps:
     - name: Configure App
       shell: bash
-      run: echo "starting the ${{ inputs.app }} with ${{ inputs.config }}"
+      with:
+        app: ${{ matrix.app }}
+      run: echo "starting the ${{ app }} with ${{ inputs.config }}"
