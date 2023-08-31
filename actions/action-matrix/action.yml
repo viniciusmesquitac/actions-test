@@ -17,6 +17,6 @@ runs:
     - name: Configure App
       shell: bash
       run: |
-        IFS="," read -a apps_array <<< $apps
+        IFS="," read -a apps_array <<< ${{ inputs.apps }}
         echo "App 1: ${apps_array[0]}"
         echo "Number of elements in the array: ${#apps_array[@]}"
