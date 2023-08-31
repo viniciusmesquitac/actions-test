@@ -19,6 +19,6 @@ runs:
       run: |
         IFS="," read -a apps_array <<< ${{ inputs.apps }}
         for app in "${apps_array[@]}"; do
-          echo "Configure ${app} with ${inputs.config}"
+          echo "Configure $app with ${{ inputs.config }}"
         done
         
